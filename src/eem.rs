@@ -31,7 +31,7 @@ enum LinkStatus {
     Up,
 }
 
-pub struct EemDriver<'a, B>
+pub struct EthernetDriver<'a, B>
 where
     B: UsbBus,
 {
@@ -46,7 +46,7 @@ where
     link_status: LinkStatus,
 }
 
-impl<'a, B> EemDriver<'a, B>
+impl<'a, B> EthernetDriver<'a, B>
 where
     B: UsbBus,
 {
@@ -326,7 +326,7 @@ where
     }
 }
 
-impl<B> UsbClass<B> for EemDriver<'_, B>
+impl<B> UsbClass<B> for EthernetDriver<'_, B>
 where
     B: UsbBus,
 {
