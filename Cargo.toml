@@ -1,10 +1,18 @@
 [package]
-name = "eem"
+name = "usbd-ethernet"
 version = "0.1.0"
 edition = "2021"
+keywords = ["no-std", "usb-device", "networking"]
+license = "MIT"
+repository = "https://github.com/fobnail/usbd-ethernet"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = []
+std = []
+logging = ["log"]
+
 [dependencies]
 usb-device = "0.2"
-log = "0.4"
+log = { version = "0.4", optional = true }
