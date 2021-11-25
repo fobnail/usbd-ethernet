@@ -351,10 +351,8 @@ where
     fn get_string(&self, index: StringIndex, lang_id: u16) -> Option<&str> {
         let _ = (index, lang_id);
 
-        if lang_id == 0x409 {
-            if index == self.str_interface_name {
-                return Some("Virtual Ethernet interface");
-            }
+        if lang_id == 0x409 && index == self.str_interface_name {
+            return Some("Virtual Ethernet interface");
         }
 
         None

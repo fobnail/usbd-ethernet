@@ -100,13 +100,13 @@ where
         F: FnOnce(&mut [u8]) -> smoltcp_crate::Result<R>,
     {
         if let Some(result) = self.driver.borrow_mut(|d| d.read_packet(f)) {
-            return result;
+            result
         } else {
             // We should never reach this - PHY driver checks if there is
             // any incoming packet before creating RxToken
             error!("BUG! RX token failed to receive Ethernet packet");
 
-            return Err(smoltcp::Error::Exhausted);
+            Err(smoltcp::Error::Exhausted)
         }
     }
 }
@@ -120,9 +120,9 @@ where
         F: FnOnce(&mut [u8]) -> smoltcp_crate::Result<R>,
     {
         if let Some(result) = self.driver.borrow_mut(|d| d.prepare_packet(len, f)) {
-            return result;
+            result
         } else {
-            return Err(smoltcp::Error::Exhausted);
+            Err(smoltcp::Error::Exhausted)
         }
     }
 }
