@@ -1,5 +1,6 @@
 [package]
 name = "usbd-ethernet"
+description = "An implementation of Ethernet-over-USB using CDC-EEM."
 version = "0.1.0"
 edition = "2021"
 keywords = ["no-std", "usb-device", "networking"]
