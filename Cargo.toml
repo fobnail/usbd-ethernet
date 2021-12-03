@@ -1,0 +1,22 @@
+[package]
+name = "usbd-ethernet"
+description = "An implementation of Ethernet-over-USB using CDC-EEM."
+version = "0.1.0"
+edition = "2021"
+keywords = ["no-std", "usb-device", "networking"]
+license = "MIT"
+repository = "https://github.com/fobnail/usbd-ethernet"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = []
+std = []
+logging = ["log"]
+smoltcp_integration = ["smoltcp"]
+
+[dependencies]
+usb-device = "0.2"
+log = { version = "0.4", optional = true }
+# smoltcp requires us to enable either proto-ipv4 or proto-ipv6
+smoltcp = { version = "0.7", default-features = false, features = ["proto-ipv4"], optional = true }
